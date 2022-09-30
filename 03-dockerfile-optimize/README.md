@@ -1,5 +1,6 @@
 To attempt to run on openshift 
-$ oc new-app --strategy=docker https://github.com/lcurry/DO180-apps.git#container-build  --context-dir=03-dockerfile-optimize 
+$ oc new-app --as-deployment-config=true --strategy=docker https://github.com/lcurry/DO180-apps.git#container-build  --context-dir=03-dockerfile-optimize 
+Note '--as-deployment-config' so that create this application as a deployment config, which allows for hooks and custom strategies e.g. the custom serviceaccountname. 
 
 
 * The parent containerfile requires root privs.  Steps needed. Create a new, specific service account, 
